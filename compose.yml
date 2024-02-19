@@ -1,0 +1,26 @@
+version: '3'
+
+services:
+  mc-server:
+    image: mc-server
+    build:
+      context: .
+      args:
+        FILENAME: mc-server.jar
+        MC_VERSION: 1.20.4
+        MIN_RAM: 1G
+        MAX_RAM: 8G
+    container_name: mc-server
+    stdin_open: true
+    tty: true
+    ports:
+      - 25565:25565
+    volumes:
+      - ./world:/minecraft/world
+      - ./plugins:/minecraft/plugins
+
+volumes:
+  world:
+    driver: local
+  plugins:
+    driver: local
