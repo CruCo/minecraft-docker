@@ -11,6 +11,7 @@ services:
         MIN_RAM: 1G
         MAX_RAM: 8G
     container_name: mc-server
+    restart: always
     stdin_open: true
     tty: true
     ports:
